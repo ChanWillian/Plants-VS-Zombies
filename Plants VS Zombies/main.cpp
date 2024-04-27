@@ -116,7 +116,6 @@ void gameInit()
 {
 	srand(time(NULL));	//设置随机种子，用于随机生成数字
 
-	//initgraph(WIN_WIDTH, WIN_HEIGHT, EX_SHOWCONSOLE);	//create game windows
 	initgraph(WIN_WIDTH, WIN_HEIGHT);	//create game windows
 
 	killZCount = 0;
@@ -150,7 +149,7 @@ void gameInit()
 		loadimage(&imgCards[i], imgUrl);									//init plant card's image
 
 		for (int j = 0; j < 20; j++) {
-			sprintf_s(imgUrl, sizeof(imgUrl), "res/zhiwu/%d/%d.png", i, j + 1);
+			sprintf_s(imgUrl, sizeof(imgUrl), "res/plant/%d/%d.png", i, j + 1);
 			if (fileExist(imgUrl)) {	//若图片存在
 				imgPlants[i][j] = new IMAGE;	//分配内存空间
 				loadimage(imgPlants[i][j], imgUrl);
@@ -159,19 +158,19 @@ void gameInit()
 		}
 	}
 
-	//init sunshineBall image
+	/*init sunshineBall image*/
 	for (int i = 0; i < imgSBCount; i++) {
 		sprintf_s(imgUrl, sizeof(imgUrl), "res/sunshine/%d.png", i + 1);
 		loadimage(&imgSunshineBall[i], imgUrl);
 	}
 
-	//init zombies
+	/*init zombies*/
 	for (int i = 0; i < imgZCount; i++) {
 		sprintf_s(imgUrl, sizeof(imgUrl), "res/zm/%d.png", i + 1);
 		loadimage(&imgZombie[i], imgUrl);
 	}
 
-	//init plant's bullet
+	/*init plant's bullet*/
 	loadimage(&imgBulletNormal, "res/bullets/bullet_normal.png");
 
 	/*图片比例由小变大，实现子弹爆炸效果*/
